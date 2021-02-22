@@ -1,7 +1,10 @@
 package com.example.demo.controllers;
 
+import com.example.demo.services.Post;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
@@ -16,12 +19,17 @@ public class FormExample {
 
     @GetMapping(value="/list")
     @ResponseBody
-    public ArrayList renderList() {
-        ArrayList<String> list = new ArrayList<>();
-        list.add("test");
-        list.add("orange");
+    public String renderList() {
 
-        // This list gets returned as json!
-        return list;
+        return "" + Post.postList.get(0).title;
+    }
+
+    @PostMapping(value = "/create-form")
+    @ResponseBody
+    public String createNewUser(@RequestParam("title") String title,@RequestParam("content") String content) {
+        Post post = new Post(title, content);
+        Post.postList.add(post);
+
+        return "title: " + Post.postList.get(0);
     }
 }

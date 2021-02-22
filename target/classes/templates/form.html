@@ -1,13 +1,33 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Facebook Post</title>
 </head>
 <body>
-<form action="">
-    <label for="name">Write your name</label>
-    <input type="text" id="name">
+<form action="/create-form" method="post">
+
+    <label for="title">Title</label>
+    <input type="text" id="title" name="title"><br>
+
+    <label>Content:</label>
+    <input type="text" id="content" name="content"><br>
+
+    <input type="radio" id="Private" name="Private-Public" value="Private">
+    <label for="Private">Private</label> <br>
+
+    <input type="radio" id="Public" name="Private-Public" value="Public">
+    <label for="Public">Public</label> <br>
+
+    <label for="date">Date:</label>
+    <input type="date" id="Date" name="date">
+
+    <!--Spørg om små og store bogstaver i html skrivestil-->
+
+
+    <input type="submit">
 </form>
+
+
 </body>
 </html>
