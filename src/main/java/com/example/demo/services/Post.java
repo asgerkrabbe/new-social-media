@@ -15,9 +15,8 @@ public class Post {
 
     @Override
     public String toString() {
-        return "Post" +
-                "title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                '}';
+        return "Posts " +
+                "title: " + title +
+                " content: " + content;
     }
 }

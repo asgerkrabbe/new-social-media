@@ -21,7 +21,7 @@ public class FormExample {
     @ResponseBody
     public String renderList() {
 
-        return "" + Post.postList.get(0).title;
+        return "" + Post.postList;
     }
 
     @PostMapping(value = "/create-form")
@@ -30,6 +30,11 @@ public class FormExample {
         Post post = new Post(title, content);
         Post.postList.add(post);
 
-        return "title: " + Post.postList.get(0);
+        return "redirect:/success";
+    }
+
+    @GetMapping(value = "/success")
+    public String creationSuccess(){
+        return "You successfully created a post!";
     }
 }
