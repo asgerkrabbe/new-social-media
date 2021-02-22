@@ -23,7 +23,7 @@ public class FormExample {
 
         return "" + Post.postList;
     }
-
+//trest
     @PostMapping(value = "/create-form")
     @ResponseBody
     public String createNewUser(@RequestParam("title") String title,@RequestParam("content") String content) {
