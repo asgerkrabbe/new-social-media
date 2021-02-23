@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 @Controller
 public class FormExample {
-    // Showing how to create a form using thymeleaf
     @GetMapping(value = "/form")
     public String renderForm() {
         return "form";
@@ -23,9 +22,8 @@ public class FormExample {
 
         return "" + Post.postList;
     }
-//trest
+
     @PostMapping(value = "/create-form")
-    @ResponseBody
     public String createNewUser(@RequestParam("title") String title,@RequestParam("content") String content) {
         Post post = new Post(title, content);
         Post.postList.add(post);
@@ -34,6 +32,7 @@ public class FormExample {
     }
 
     @GetMapping(value = "/success")
+    @ResponseBody
     public String creationSuccess(){
         return "You successfully created a post!";
     }
